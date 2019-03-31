@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+	<style type="text/css">
+		canvas{
+			border: 1px solid #d3d3d3;
+			background-color: #f1f1f1;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Canvas Drawing</h1>
+	<canvas id="canvas" width="500" height="300">
+  Canvas Drawing
+	</canvas>
+
+	<script>
+		var canvas = document.getElementById('paint');
+		var sketch = document.getElementById('sketch');
+		var sketch_style = getComputedStyle(sketch);
+		var ctx = canvas.getContext('2d');
+		var height=window.innerHeight;
+		var width=window.innerWidth;
+
+		function canvas_size(){
+			canvas.width=width*.8;
+			canvas.height=height*.8;
+			}
+		canvas_size();
+
+		function draw(){
+			ctx.beginPath();
+			ctx.arc(75,75,radius,Math.PI*2)
+			ctx.fillStle="red";
+			ctx.fill();
+		}
+
+	var mouse = {x: 10, y: 10};
+
+	/* Mouse Capturing Work */
+	canvas.addEventListener('mousemove', function(e) {
+	  mouse.x = e.offsetX;
+	  mouse.y = e.offsetY;
+		draw();
+	})
+	var onPaint = function() {
+	    ctx.lineTo(mouse.x, mouse.y);
+	    ctx.stroke();
+	};
+	<label>
+	<input type="color" value="#ff0000" onchange="test(this)" onkeyup="test(this)"></label>
+	var defaultColor = "#0000ff";
+	function test(t) {
+ 	console.log(t.value);
+	}
+	window.addEventListener("load", function(e){
+
+	}
+</script>
+
+
+
+</body>
+</html>
